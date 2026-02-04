@@ -1,4 +1,4 @@
-# 📦 Instagram ZIP Analyzer
+# 📦 Instagram Analyzer
 
 A simple, privacy-friendly web tool that analyzes **Instagram data ZIP files** and shows useful insights like blocked accounts, users who don’t follow you back, hidden stories, pending requests, and more — all **locally in your browser**.
 
