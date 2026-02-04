@@ -1,68 +1,184 @@
+/* ---------- GLOBAL ---------- */
+:root {
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --primary: #0095f6;
+    --primary-dark: #0077cc;
+    --text: #111827;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --radius: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
+    margin: 0;
+    font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+    background: linear-gradient(180deg, #f9fafb, #eef2ff);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 28px 16px;
+    color: var(--text);
 }
 
+/* ---------- CARD ---------- */
 .card {
-    background: #fff;
-    width: 360px;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.04);
+    animation: fadeUp 0.35s ease;
 }
 
-h2, h3 {
-    margin-top: 0;
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-button {
+h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+}
+
+h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ---------- FILE INPUT ---------- */
+input[type="file"] {
     width: 100%;
     padding: 12px;
-    background: #0095f6;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    background: #f9fafb;
     cursor: pointer;
+    font-size: 14px;
+}
+
+input[type="file"]:hover {
+    border-color: var(--primary);
+}
+
+#uploadedFile {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+}
+
+/* ---------- BUTTON ---------- */
+button {
+    width: 100%;
+    padding: 14px;
     font-size: 16px;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:hover {
-    background: #007fd6;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0, 149, 246, 0.35);
 }
 
-/* MENU */
+button:active {
+    transform: scale(0.98);
+}
+
+/* ---------- MENU ---------- */
 .menu {
-    margin-top: 15px;
+    margin-top: 16px;
     display: none;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
 }
 
 .menu div {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    transition: background 0.15s ease;
+}
+
+.menu div:not(:last-child) {
+    border-bottom: 1px solid var(--border);
 }
 
 .menu div:hover {
     background: #f1f5f9;
 }
 
-/* RESULTS */
+/* ---------- RESULTS ---------- */
 .result {
     display: none;
 }
 
+.result p {
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ---------- USERNAME LIST ---------- */
 .username {
     display: block;
-    padding: 6px 0;
-    color: #2563eb;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
     text-decoration: none;
+    font-weight: 500;
+    color: #2563eb;
+    transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .username:hover {
-    text-decoration: underline;
+    background: #eef2ff;
+    transform: translateX(2px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 480px) {
+    .card {
+        padding: 18px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 15px;
+    }
 }
