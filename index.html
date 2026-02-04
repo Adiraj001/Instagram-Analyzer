@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Instagram ZIP Analyzer</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+<div class="card">
+    <h2>Upload Instagram ZIP</h2>
+    <input type="file" id="zipInput" accept=".zip">
+    <p id="uploadedFile"></p>
+</div>
+
+<div class="card">
+    <button id="processBtn">Process</button>
+
+    <!-- MENU (hidden until Process) -->
+    <div class="menu" id="menu">
+        <div onclick="show('blocked')">🚫 Blocked</div>
+        <div onclick="show('notFollowing')">👤 ID doesn’t follow you</div>
+        <div onclick="show('hideStory')">👁️ Hide story from</div>
+        <div onclick="show('pending')">⏳ Pending follow request</div>
+        <div onclick="show('removed')">❌ Removed suggestion</div>
+        <div onclick="show('restricted')">🔒 Restricted account</div>
+    </div>
+</div>
+
+<!-- RESULTS -->
+<div class="card result" id="blocked">
+    <h3>Blocked Accounts</h3>
+    <div id="blockedList"></div>
+</div>
+
+<div class="card result" id="notFollowing">
+    <h3>IDs That Don’t Follow You</h3>
+    <div id="notFollowingBackList"></div>
+</div>
+
+<div class="card result" id="hideStory">
+    <h3>Hide Story From</h3>
+    <div id="hideStoryList"></div>
+</div>
+
+<div class="card result" id="pending">
+    <h3>Pending Follow Requests</h3>
+    <div id="pendingList"></div>
+</div>
+
+<div class="card result" id="removed">
+    <h3>Removed Suggestions</h3>
+    <div id="removedSuggestionsList"></div>
+</div>
+
+<div class="card result" id="restricted">
+    <h3>Restricted Accounts</h3>
+    <div id="restrictedList"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
