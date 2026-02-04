@@ -47,8 +47,6 @@ document.getElementById("processBtn").addEventListener("click", () => {
     show("blocked");
 });
 
-/* ---------- HELPERS ---------- */
-
 function readList(fileName, set) {
     const path = `connections/followers_and_following/${fileName}`;
     if (!zipData[path]) return;
@@ -62,7 +60,6 @@ function readOnly(fileName) {
     return extract(zipData[path]);
 }
 
-/* ✅ FIXED USERNAME EXTRACTION */
 function extract(html) {
     const doc = new DOMParser().parseFromString(html, "text/html");
 
